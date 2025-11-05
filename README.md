@@ -19,6 +19,14 @@ The application listens on `http://localhost:8058` (configurable via `server.por
   - `file`: ZIP archive (`application/zip` or `.zip` extension)
   - `reportId`: string identifier used when naming the stored file
 
+## Download endpoint
+- Method & path: `GET /api/download/{reportId}`
+- Response: ZIP file saved with the matching `reportId`
+- Example request:
+  ```bash
+  curl -OJ http://localhost:8058/api/download/2
+  ```
+
 ### Sample request (HTTPie)
 ```
 POST /api/upload HTTP/1.1
@@ -53,3 +61,4 @@ To use a different directory, update the `TARGET_DIRECTORY` constant or replace 
 
 ## Troubleshooting
 - `java.nio.file.AccessDeniedException: /temp`: The application could not write to the target directory. Ensure the directory exists and is writable, or adjust `TARGET_DIRECTORY` to point to a path you control (e.g. `/tmp/uploads`).
+- `404 File not found`: No ZIP file with the requested `reportId` exists under the configured storage directory.
