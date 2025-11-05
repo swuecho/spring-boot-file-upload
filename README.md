@@ -62,3 +62,10 @@ To use a different directory, update the `TARGET_DIRECTORY` constant or replace 
 ## Troubleshooting
 - `java.nio.file.AccessDeniedException: /temp`: The application could not write to the target directory. Ensure the directory exists and is writable, or adjust `TARGET_DIRECTORY` to point to a path you control (e.g. `/tmp/uploads`).
 - `404 File not found`: No ZIP file with the requested `reportId` exists under the configured storage directory.
+
+
+## run test
+
+```
+mvn -q -DskipTests=false test
+```

@@ -54,10 +54,8 @@ public class FileUploadController {
         }
 
         try {
-            Files.createDirectories(TARGET_DIRECTORY);
-
             logger.info("Received upload request for reportId={} filename={}", reportId, file.getOriginalFilename());
-
+            Files.createDirectories(TARGET_DIRECTORY);
             String originalName = StringUtils.hasText(file.getOriginalFilename())
                     ? Objects.requireNonNull(file.getOriginalFilename())
                     : "upload.zip";
